@@ -1,0 +1,34 @@
+.FormWrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.FormInput {
+    padding: 1.5rem 1rem;
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    border-radius:  12px;
+}
+
+.FormInput:focus {
+    outline-width: 0;
+    border: 1px solid #767474;
+    
+}
+
+.FormBtn {
+    background: #2F80ED;
+    box-shadow: 0px 2px 6px rgba(127, 177, 243, 0.4);
+    border-radius: 12px;
+    padding:1.5rem 1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.FormBtn:focus , .FormBtn:hover{
+    outline-width: 0;
+    background: #2f81eddc;
+}
