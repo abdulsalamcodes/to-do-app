@@ -28,6 +28,7 @@ function reducer(lists, action) {
 
     switch (action.type) {
         case 'add':
+            action.redirect()
             return [...lists, {
                 name: action.name,
                 active: true,
