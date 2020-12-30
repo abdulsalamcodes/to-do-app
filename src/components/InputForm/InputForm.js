@@ -2,14 +2,14 @@ import React, {useContext, useRef} from 'react'
 import { TodoContext } from '../../contexts/TodoContext'
 import styles from './InputForm.module.css'
 function InputForm() {
-    const { dispatch, tab, getAll} = useContext(TodoContext);
+    const { dispatch, tab} = useContext(TodoContext);
     const inputRef = useRef(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (inputRef.current.value === '') return;
 
-        dispatch({type: 'add', name: inputRef.current.value , redirect: getAll});
+        dispatch({type: 'add', name: inputRef.current.value });
         
         inputRef.current.value = '';
     }
