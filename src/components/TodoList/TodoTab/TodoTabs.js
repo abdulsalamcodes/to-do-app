@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
-import { TodoContext } from '../../contexts/TodoContext'
-import styles from './TodoList.module.css'
+import { TodoContext } from '../../../contexts/TodoContext'
+import styles from './TodoTabs.module.css'
 
 function TodoTabs() {
     const {getActive, getCompleted, getAll, tab} = useContext(TodoContext);

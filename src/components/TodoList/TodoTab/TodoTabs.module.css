@@ -1,0 +1,73 @@
+.TabList {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.TabList:after {
+    display: block;
+    content: '';
+    border-bottom: 1px solid #BDBDBD;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.TabList li {
+    flex: 1;
+}
+
+.TabBtn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.4rem;
+    font-size: var(--text-color);
+    /* width: 100%; */
+    padding: 1rem 3rem;
+    cursor: pointer;
+    font-weight: 600px;
+    position: relative;
+}
+
+.TabBtn:after {
+    content: '';
+    height: 4px;
+    background: #2F80ED;
+    border-radius: 4px 4px 0px 0px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+}
+
+.Active.TabBtn::after {
+    width: 100%;
+}
+
+.TabBtn:focus, .TabBtn:active {
+    outline-width: 0;
+    border-width: 0;
+    border: none;
+}
+
+.TabBtn:focus.TabBtn::after, .TabBtn:active.TabBtn::after {
+    width: 100%;
+}
+
+.TabBtn:hover.TabBtn:after {
+    animation: elongate .3s ease-out;
+    width: 100%;
+}
+
+@keyframes elongate {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}

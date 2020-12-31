@@ -44,10 +44,7 @@ function reducer(lists, action) {
                 return todo
             })
 
-        case 'remove':
-            let itemToBeRemoved = lists.filter(todo => todo.id !== action.id);
-            return itemToBeRemoved;
-
+      
         case 'removeAllCompleted':
             let completed = lists.filter(todo => todo.active);
             action.redirect()
@@ -94,29 +91,34 @@ function TodoContextProvider(props) {
         setTab({ prevTabs, all: true })
     }
 
+ 
     // When the "Active" tab is clicked, get all active elements
     const getActive = () => {
         setCurrent(lists.filter(todo => todo.active === true))
         setTab({ prevTabs, active: true })
     }
 
-
     // When the "Completed" tab is clicked, get all completed elements
-    const completedItem = lists.filter(todo => todo.active !== true);
+    let completedItem = lists.filter(todo => todo.active !== true);
     const getCompleted = () => {
         setCurrent(completedItem);
         setTab({ prevTabs, completed: true })
     }
     
+    // Delete a Completed Item.
+    const deleteItem = (id) => {
+        let itemToBeRemoved = lists.filter(todo => todo.id === id)[0];
+        let itemIndex = lists.indexOf(itemToBeRemoved);
+        lists.splice(itemIndex, 1);
+        setCurrent(lists.filter(todo => todo.active !== true))
+    }
+
     const showCompleted = () => {
         setCurrent(completedItem);
     }
 
-
-
-
     return (
-        <TodoContext.Provider value={{ dispatch, getActive, tab, getCompleted, getAll, current, showCompleted }}>
+        <TodoContext.Provider value={{ dispatch, getActive, tab, getCompleted, getAll, current, showCompleted, deleteItem }}>
             {props.children}
         </TodoContext.Provider>
     )
