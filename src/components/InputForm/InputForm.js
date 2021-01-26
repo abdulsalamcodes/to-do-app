@@ -7,7 +7,7 @@ function InputForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (inputRef.current.value === '') return;
+        if (inputRef.current.value.trim() === '') return;
 
         dispatch({type: 'add', name: inputRef.current.value });
         
